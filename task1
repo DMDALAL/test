@@ -1,0 +1,11 @@
+Example shot 011_010
+
+Source:
+
+P:\projects\turner_and_hooch\work\shots\101\011_010\comp_degrain\akreddy\nuke\renders\101_011_010_comp_degrain_v001
+
+Target: P:\projects\turner_and_hooch\work\shots\101\011_010\comp_final_degrain
+
+Source : comp_degraintarget : comp_final_degrain
+
+Adding the paths into the MySQL database
