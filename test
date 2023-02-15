@@ -1,0 +1,22 @@
+def get_latest_data(context: str, show_code: str, filename: str, root_folder: str = None):
+    try:
+        filename, extension = filename.rsplit('.', 1)
+    except ValueError:
+        extension = "json"
+        filename = filename
+    if extension != "json":
+        raise ValueError("Invalid filename specified for get_latest_data.")
+
+    try:
+        data = read_json(get_version_path(context=context, show_code=show_code, file_name=filename,
+                                          extension=".json", root_folder=root_folder, version="latest"))
+    except FileNotFoundError:
+        logger.warning("No pre-existing data found. Saving empty dictionary.")
+        return {}
+    return data
+
+
+def version_up(data: dict, context: str, show_code: str, filename: str, root_folder: str = None):
+    path = get_version_path(file_name=filename, extension=".json", context=context, show_code=show_code,
+                            version="next", root_folder=root_folder)
+    version_up_save(data, path)
